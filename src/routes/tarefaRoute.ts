@@ -1,11 +1,15 @@
 import { Router, Request, Response } from 'express';
-import { Tarefa, CreateData } from '../models/Tarefa'// ou de onde estiver exportado
-import { addTarefa, verTarefas } from '../controllers/tarefaController';
+import { addTarefa, alterarTarefa, deletarTarefa, verTarefas } from '../controllers/tarefaController';
 
 const router = Router();
 
 router.post('/add', addTarefa);
 
-router.get('/tarefas', verTarefas);
+router.get('/', verTarefas);
+
+router.put('/update/:id', alterarTarefa)
+
+router.delete('/delete/:id', deletarTarefa)
+
 
 export default router;
