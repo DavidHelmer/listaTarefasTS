@@ -16,7 +16,6 @@ export interface CreateData {
     name: string;
     description: string;
     urgent: boolean;
-    usuarioId: number;
 }
 
 @Table

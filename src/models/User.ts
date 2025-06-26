@@ -15,7 +15,7 @@ import { Tarefa } from './Tarefa';
 export interface CreateData {
     name: string;
     email: string;
-    tarefaId: number[];
+    tarefaId: Array<number>;
 }
 
 @Table
