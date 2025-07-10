@@ -1,5 +1,5 @@
 import { AppError } from "../../errors/AppError"
-import { Tarefa } from "../../models/Tarefa";
+import { Task } from "../../models/Task";
 import { User } from "../../models/User";
 
 export const deleteUserService = async (id): Promise<void> => {
@@ -13,10 +13,10 @@ export const deleteUserService = async (id): Promise<void> => {
         throw new AppError('O usuário não existe')
     }
 
-    if (Tarefa.findOne({
+    if (Task.findOne({
         where: { usuarioId: id }
     })) {
-        throw new AppError('Uma ou mais tarefas estão relacionadas a esse usuário, desvincule as tarefas antes de deletar ele do sistema')
+        throw new AppError('Uma ou mais tasks estão relacionadas a esse usuário, desvincule as tasks antes de deletar ele do sistema')
     }
 
     await user.destroy();

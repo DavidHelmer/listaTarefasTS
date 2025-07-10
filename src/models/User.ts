@@ -10,12 +10,12 @@ import {
     HasMany,
     Unique
 } from 'sequelize-typescript'
-import { Tarefa } from './Tarefa';
+import { Task } from './Task';
 
 export interface CreateData {
     name: string;
     email: string;
-    tarefaId: Array<number>;
+    taskId: Array<number>;
 }
 
 @Table
@@ -34,7 +34,7 @@ export class User extends Model<User> {
     @Column(DataType.STRING(40))
     email: string;
 
-    @HasMany(() => Tarefa)
-    tarefas: Tarefa[];
+    @HasMany(() => Task)
+    tasks: Task[];
 
 }

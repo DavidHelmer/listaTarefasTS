@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import db from './db/connection';
-import tarefaRoutes from './routes/tarefaRoute'
+import taskRoutes from './routes/taskRoute';
 import userRoutes from './routes/userRoute'
 import { AppError } from './errors/AppError';
 import { ValidationError } from 'yup';
@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/tarefas', tarefaRoutes);
+app.use('/tasks', taskRoutes);
 app.use('/users', userRoutes);
 app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
 

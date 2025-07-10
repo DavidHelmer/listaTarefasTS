@@ -1,11 +1,11 @@
 import { CreateData, User } from "../../models/User";
-import { Tarefa } from "../../models/Tarefa";
+import { Task } from "../../models/Task";
 import { AppError } from "../../errors/AppError";
 import { UserSchemas } from "./schemas";
 
 
-export const createUserService = async ({ name, email, tarefaId }: CreateData): Promise<User> => {
-    await UserSchemas.createUser.validate({ name, email, tarefaId })
+export const createUserService = async ({ name, email, taskId }: CreateData): Promise<User> => {
+    await UserSchemas.createUser.validate({ name, email, taskId })
 
     const userExists = await User.findOne({
         where: { email: email }
@@ -20,10 +20,10 @@ export const createUserService = async ({ name, email, tarefaId }: CreateData): 
         email,
     })
 
-    if (tarefaId && tarefaId.length > 0) {
-        await Tarefa.update(
+    if (taskId && taskId.length > 0) {
+        await Task.update(
             { usuarioId: user.id },
-            { where: { id: tarefaId } }
+            { where: { id: taskId } }
         )
     }
 

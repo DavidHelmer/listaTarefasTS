@@ -1,5 +1,5 @@
 {
-  "name": "tarefas",
+  "name": "tasks",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "mysql2": "^3.14.1",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
+    "ts-node": "^10.9.2",
     "yup": "^1.6.1"
   },
   "devDependencies": {
