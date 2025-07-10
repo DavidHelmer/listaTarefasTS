@@ -7,9 +7,9 @@ import { deleteUserService } from '../services/UserServices/deleteUserService';
 
 //Cria um usuário novo
 export const addUser = async (req: Request, res: Response): Promise<any> => {
-    const { name, email, tarefaId } = req.body
+    const { name, email, taskId } = req.body
 
-    const newUser = await createUserService({ name, email, tarefaId });
+    const newUser = await createUserService({ name, email, taskId });
 
     return res.json({
         "message": "Usuario criado com sucesso",
@@ -27,9 +27,9 @@ export const seeUsers = async (req: Request, res: Response): Promise<any> => {
 
 export const updateUser = async (req: Request, res: Response): Promise<any> => {
     const id = Number(req.params.id);
-    const { name, email, tarefaId } = req.body as CreateData;
+    const { name, email, taskId } = req.body as CreateData;
 
-    const user = await updateUserService({ name, email, tarefaId }, id);
+    const user = await updateUserService({ name, email, taskId }, id);
     return res.status(200).json({
         message: "Usuário atualizado com sucesso",
         user

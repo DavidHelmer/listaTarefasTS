@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript"
 import { env } from "process";
 import dotenv from 'dotenv';
-import { Tarefa } from '../models/Tarefa'
+import { Task } from "../models/Task";
 import { User } from "../models/User";
 
 dotenv.config();
@@ -12,7 +12,7 @@ const db = new Sequelize({
     password: env.DB_PASSWORD,
     username: env.DB_USERNAME,
     dialect: "mysql",
-    models: [Tarefa, User]
+    models: [Task, User]
 })
 
 export default db;

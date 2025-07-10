@@ -19,7 +19,7 @@ export interface CreateData {
 }
 
 @Table
-export class Tarefa extends Model<Tarefa> implements CreateData {
+export class Task extends Model<Task> implements CreateData {
     @AutoIncrement
     @PrimaryKey
     @Column(DataType.INTEGER)

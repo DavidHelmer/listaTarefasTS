@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "1234",
-    "database": "lista_tarefas",
+    "database": "tasklist",
     "host": "localhost",
     "dialect": "mysql"
   },

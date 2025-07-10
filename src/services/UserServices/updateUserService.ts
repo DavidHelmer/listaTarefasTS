@@ -1,8 +1,8 @@
 import { AppError } from "../../errors/AppError"
-import { Tarefa } from "../../models/Tarefa";
+import { Task } from "../../models/Task";
 import { CreateData, User } from "../../models/User"
 
-export const updateUserService = async ({ name, email, tarefaId }: CreateData, id): Promise<User> => {
+export const updateUserService = async ({ name, email, taskId }: CreateData, id): Promise<User> => {
     if (isNaN(id)) {
         throw new AppError('ID inválido')
     }
@@ -18,10 +18,10 @@ export const updateUserService = async ({ name, email, tarefaId }: CreateData, i
         email,
     })
 
-    if (tarefaId && tarefaId.length > 0) {
-        await Tarefa.update(
+    if (taskId && taskId.length > 0) {
+        await Task.update(
             { usuarioId: id },
-            { where: { id: tarefaId } }
+            { where: { id: taskId } }
         )
     }
 
